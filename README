@@ -1,36 +1,36 @@
-# desafio-medicar
+Desafio Medicar
 
 Um sistema com o intuito de auxiliar seus clientes na marcação de consultas e gerenciar seu corpo médico. Esse projeto foi desenvolvido como parte da avaliação do processo seletivo da IntMed-Software.
 
-# Funcionalidades da Interface Administrativa
+Funcionalidades da Interface Administrativa
 
 A interface administrativa (http://localhost:8000/admin/) possui as seguintes funcionalidades:
 
-## Cadastrar especialidade
+Cadastrar especialidade
 
 É possivel cadastrar as especialidades médicas (ex: Cardiologia, Pediatria) que a clínica atende fornecendo as seguintes entradas:
 
-- Nome: Nome da especialidade (obrigatório)
+  - Nome: Nome da especialidade (obrigatório)
 
-## Cadastrar médicos
+Cadastrar médicos
 
 É possível cadastrar os médicos que podem atender na clínica fornecendo as seguintes informações:
 
-- Nome: Nome do médico (obrigatório)
-- CRM: Número do médico no conselho regional de medicina (obrigatório)
-- E-mail: Endereço de e-mail do médico
-- Telefone: Telefone do médico
-- Especialidade: Especialidade na qual o médico atende
+  - Nome: Nome do médico (obrigatório)
+  - CRM: Número do médico no conselho regional de medicina (obrigatório)
+  - E-mail: Endereço de e-mail do médico
+  - Telefone: Telefone do médico
+  - Especialidade: Especialidade na qual o médico atende
 
-## Criar agenda para médico
+Criar agenda para médico
 
 Deve ser possível criar uma agenda para um médico em um dia específico fornecendo as seguintes informações:
 
-- Médico: Médico que será alocado (obrigatório)
-- Dia: Data de alocação do médico (obrigatório)
-- Horários: Lista de horários na qual o médico deverá ser alocado para o dia especificado (obrigatório)
+  - Médico: Médico que será alocado (obrigatório)
+  - Dia: Data de alocação do médico (obrigatório)
+  - Horários: Lista de horários na qual o médico deverá ser alocado para o dia especificado (obrigatório)
 
-# Recursos da API
+Recursos da API
 
 A API utiliza autenticação baseada em token, então, ao enviar a requisição, o cliente deve enviar no cabeçalho HTTP Authorization o token de autenticação.
 Todos os endpoints exigem autenticação.
@@ -38,52 +38,27 @@ Todos os endpoints exigem autenticação.
 Para uma descrição detalhada das regras de negócios e todas as funcionalidades, você pode consultar o repositório do
 desafio https://github.com/Intmed-Software/desafio/tree/master/backend.
 
-## Endpoints disponíveis:
+Endpoints disponíveis:
 
 Os endpoints disponíveis e os métodos HTTP permitidos são:
 
-- /login/ (post)
-- /especialidades/ (get)
-- /medicos/ (get)
-- /agendas/ (get)
-- /consultas/ (get,post,delete)
+  - /especialidades/ (get)
+  - /medicos/ (get)
+  - /agendas/ (get)
+  - /consultas/ (get,post,delete)
 
-### O endpoint /login/
-Autentica o usuário e retorna o token de acesso à API
-
-#### Requisição
-
-Manda as credenciais e recebe o token como retorno
-
-```
-POST /login/
-{
-  "username": "admin",
-  "password": "admin"
-}
-```
-
-#### Resposta
-```json
-  {
-    "token": "9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b",    
-  }
-```
-
-
-### O endpoint /especialidades/
+/Especialidades/
 
 Lista todas as especialidades médicas disponíveis na clínica:
 
-#### Requisição
+Requisição
 
-```
+
 GET /especialidades/
-```
 
-#### Resposta
 
-```json
+Resposta
+
 [
   {
     "id": 1,
@@ -102,29 +77,29 @@ GET /especialidades/
     "nome": "Clínico Geral"
   }
 ]
-```
 
-#### Filtros
+
+Filtros
 
 - Nome da especialidade (termo de pesquisa)
 
-```
-GET /especialidades/?search=ped
-```
 
-### O endpoint /medicos/
+GET /especialidades/?search=ped
+
+
+/Medicos/
 
 Lista todos os médicos que atendem pela clínica
 
-#### Requisição
+Requisição
 
-```
+
 GET /medicos/
-```
 
-#### Resposta
 
-```json
+Resposta
+
+
 [
   {
     "id": 1,
@@ -154,32 +129,32 @@ GET /medicos/
     }
   }
 ]
-```
 
-#### Filtros
+
+Filtros
 
 - Identificador de uma ou mais especialidades
 - Nome do médico (termo de pesquisa)
 
-```
+
 GET /medicos/?search=maria&especialidade=1&especialidade=3
-```
 
-### O endpoint /consultas/
 
-#### Listar consultas marcadas
+/Consultas/
+
+Listar consultas marcadas
 
 Lista todas as consultas marcadas do usuário logado
 
-##### Requisição
+Requisição
 
-```
+
 GET /consultas/
-```
 
-##### Retorno
 
-```json
+Retorno
+
+
 [
   {
     "id": 1,
@@ -212,25 +187,24 @@ GET /consultas/
     }
   }
 ]
-```
 
-#### Marcar consulta
+Marcar consulta
 
 Marca uma consulta para o usuário logado
 
-##### Requisição
+Requisição
 
-```
+
 POST /consultas/
 {
   "agenda_id": 1,
   "horario": "14:15"
 }
-```
 
-##### Retorno
 
-```json
+Retorno
+
+
 {
   "id": 2,
   "dia": "2020-03-01",
@@ -246,35 +220,34 @@ POST /consultas/
     }
   }
 }
-```
 
-#### Desmarcar consulta
+
+Desmarcar consulta
 
 Desmarca uma consulta marcada pelo usuário
 
-##### Requisição
+Requisição
 
-```
+
 DELETE /consultas/<consulta_id>
-```
 
-##### Retorno
+
+Retorno
 
 Não há retorno (vazio)
 
-### O endpoint /agendas/
+/Agendas/
 
 Lista todas as agendas disponíveis na clínica
 
-#### Requisição
+Requisição
 
-```
 GET /agendas/
-```
 
-#### Retorno
 
-```json
+Retorno
+
+
 [
   {
     "id": 1,
@@ -305,14 +278,13 @@ GET /agendas/
     "horarios": ["08:00", "08:30", "09:00", "09:30", "14:00"]
   }
 ]
-```
 
-#### Filtros
+
+Filtros
 
 - Identificador de um ou mais médicos
 - Identificador de uma ou mais especialidades
 - Intervalo de data
 
-```
+
 GET /agendas/?medico=1&especialidade=2&data_inicio=2020-01-01&data_final=2020-01-05
-```
