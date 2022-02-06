@@ -12,11 +12,15 @@ Para a configuração do ambiente virtual, recomenda-se seguir o passo-a-passo d
 
 ## Instalação de Pacotes
 
-Para instalar toda as dependências necessárias para o funcionamento do projeto, dentro do ambiente virtual configurado, insira o comando **pip install -r requirements.txt**
+Para instalar toda as dependências necessárias para o funcionamento do projeto, dentro do ambiente virtual configurado, insira o comando 
+
+'''
+pip install -r requirements.txt
+'''
 
 ## Inicialização da API
 
-Para dar início ao funcionamento da API e todas as funções da mesma, é necessário abrir o terminal de comando do ambiente virtual, e inserir os comandos **py manage.py migrate** e **py manage.py runserver**
+Para dar início ao funcionamento da API e todas as funções da mesma, é necessário abrir o terminal de comando do ambiente virtual, e inserir os comandos **python manage.py migrate** e **python manage.py runserver**
 
 # Funcionalidades da Interface Administrativa
 
