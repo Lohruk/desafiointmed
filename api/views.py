@@ -12,6 +12,7 @@ from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
+from .filters import AgendaFilter, MedicoFilter
 from .models import Agenda, Consulta, Especialidade, Horario, Medico
 from .serializers import (
     AgendaSerializer,
@@ -21,18 +22,7 @@ from .serializers import (
     MedicoSerializer,
 )
 
-# View e filtros -> Agenda
-
-class AgendaFilter(django_filters.FilterSet):
-    medico = django_filters.NumberFilter(field_name='medico__id')
-    especialidade = django_filters.NumberFilter(field_name='medico__especialidade__id')
-    data_inicio = django_filters.DateFilter(field_name='dia', lookup_expr='gte')
-    data_final = django_filters.DateFilter(field_name='dia', lookup_expr='lte')
-
-    class Meta:
-        model = Agenda
-        fields = ['dia']
-
+# View Agenda
 
 class AgendaViewSet(ModelViewSet):
     serializer_class = AgendaSerializer
@@ -61,7 +51,7 @@ class AgendaViewSet(ModelViewSet):
         return queryset
 
 
-# View e filtros -> Consulta
+# View Consulta
 
 def no_past(value):
     today = date.today()
@@ -116,7 +106,7 @@ class DeletarConsultaViewSet(generics.RetrieveDestroyAPIView):
         )
 
 
-# View e filtros -> Especialidades
+# View Especialidades
 
 class EspecialidadeViewSet(ModelViewSet):
     serializer_class = EspecialidadeSerializer
@@ -127,15 +117,7 @@ class EspecialidadeViewSet(ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, )
 
 
-# View e filtros -> Medicos
-
-
-class MedicoFilter(django_filters.FilterSet):
-    especialidade = django_filters.NumberFilter(field_name='especialidade__id')
-
-    class Meta:
-        model = Medico
-        fields = ['nome']
+# View Medicos
 
 
 class MedicoViewSet(ModelViewSet):
