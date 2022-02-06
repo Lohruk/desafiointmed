@@ -2,6 +2,22 @@
 
 Um sistema com o intuito de auxiliar seus clientes na marcação de consultas e gerenciar seu corpo médico. Esse projeto foi desenvolvido como parte da avaliação do processo seletivo da IntMed-Software.
 
+# Configurando o projeto:
+
+## Ambiente Virtual:
+
+Para a configuração do projeto, o primeiro passo é a instalação do ambiente virtual.
+
+Pode-se seguir o tutorial disponibilizado pelo programa VSCode da Microsoft, disponível no link https://code.visualstudio.com/docs/python/tutorial-django
+
+## Instalando Requerimentos:
+
+Após a configuração do ambiente virtual, inserir no terminal de comando a linha **pip install -r requirements.txt**
+
+## Iniciando a API:
+
+Com as etapas anteriores realizadas, basta digitar no terminal de comando os comandos **py manage.py migrate** e **py manage.py runserver**
+
 # Funcionalidades da Interface Administrativa
 
 A interface administrativa (http://localhost:8000/admin/) possui as seguintes funcionalidades:
