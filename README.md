@@ -2,6 +2,22 @@
 
 Um sistema com o intuito de auxiliar seus clientes na marcação de consultas e gerenciar seu corpo médico. Esse projeto foi desenvolvido como parte da avaliação do processo seletivo da IntMed-Software.
 
+# Configuração de Projeto
+
+Para o funcionamento da API, são necessários os seguintes passos:
+
+## Configuração do Ambiente Virtual
+
+Para a configuração do ambiente virtual, recomenda-se seguir o passo-a-passo disposto pelo programa VSCode da Microsoft, através do link **https://code.visualstudio.com/docs/python/tutorial-django**
+
+## Instalação de Pacotes
+
+Para instalar toda as dependências necessárias para o funcionamento do projeto, dentro do ambiente virtual configurado, insira o comando **pip install -r requirements.txt**
+
+## Inicialização da API
+
+Para dar início ao funcionamento da API e todas as funções da mesma, é necessário abrir o terminal de comando do ambiente virtual, e inserir os comandos **py manage.py migrate** e **py manage.py runserver**
+
 # Funcionalidades da Interface Administrativa
 
 A interface administrativa (http://localhost:8000/admin/) possui as seguintes funcionalidades:
